@@ -1,4 +1,3 @@
-// src/features/Product/index.js  (เฉพาะ Product component ตรงบนสุด)
 import React from 'react';
 import PropTypes from 'prop-types';
 

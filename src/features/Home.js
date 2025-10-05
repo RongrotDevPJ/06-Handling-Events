@@ -1,7 +1,6 @@
-// src/features/Home.js
 import { useState } from "react";
-import { AddForm } from "./Product";    // ใช้ re-export
-import Product from "./Product";        // default export คือ Product component
+import { AddForm } from "./Product";    
+import Product from "./Product";       
 import productsData from "../app/data";
 
 let currentProductId = 9;
