@@ -1,28 +1,58 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-function Product({ item }) {
-  let productImage;
+export { default as AddForm } from "./AddForm";
+
+function ProductBase({ className, item }) {
+  let productImage = item.imageURL;
   try {
     productImage = require(`../../assets/${item.imageURL}`);
   } catch (e) {
-    productImage = item.imageURL;
   }
 
   return (
-    <li className="Products">
+    <li className={className}>
       <a href={`/update-product/${item.id}`}>
         <img className="Products__image" src={productImage} alt={item.name} />
-        <div className="Products__name">{item.name}</div>
+        <span className="Products__name">{item.name}</span>
         <small className="Products__type">{item.type}</small>
       </a>
     </li>
   );
 }
 
-Product.propTypes = {
-  item: PropTypes.object.isRequired
+ProductBase.propTypes = {
+  className: PropTypes.string,
+  item: PropTypes.object.isRequired,
 };
 
+const Product = styled(ProductBase)`
+  padding-right: 12px;
+  padding-bottom: 36px;
+  padding-left: 12px;
+  width: 33%;
+  position: relative;
+
+  .Products__name {
+    color: #333;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    display: block;
+  }
+
+  .Products__type {
+    color: #767676;
+  }
+
+  .Products__image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+`;
+
 export default Product;
-export { default as AddForm } from "./AddForm";

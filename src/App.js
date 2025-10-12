@@ -1,15 +1,18 @@
-import Navbar from './features/Navbar';
-import Container from './features/Container';
-import Home from './features/Home';
+import React from "react";
+import GlobalStyle from "./features/GlobalStyle";
+import Navbar from "./features/Navbar";
+import Container from "./features/Container";
+import Home from "./features/Home";
 
 function App() {
   return (
-    <div>
+    <>
+      <GlobalStyle />
       <Navbar />
       <Container>
         <Home />
       </Container>
-    </div>
+    </>
   );
 }
 

@@ -1,12 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-function Container({ children }) {
-  return <main>{children}</main>;
+function ContainerBase({ className, children }) {
+  return <main className={className}>{children}</main>;
 }
+ContainerBase.propTypes = { className: PropTypes.string, children: PropTypes.node };
 
-Container.propTypes = {
-  children: PropTypes.node.isRequired
-};
+const Container = styled(ContainerBase)`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 0;
+`;
 
 export default Container;
