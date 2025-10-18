@@ -32,14 +32,13 @@ function HomeBase({ className }) {
   }
 
   return (
-    <div className={className}>
-      <AddForm addProduct={addProduct} />
-      <ul className="Home__products">
-        {products.map((p) => (
-          <Product key={p.id} item={p} />
-        ))}
-      </ul>
-    </div>
+     <div className={className}>
+    <ul className="Home__products">
+      {products.map((p) => (
+        <Product key={p.id} item={p} />
+      ))}
+    </ul>
+  </div>
   );
 }
 

@@ -1,19 +1,22 @@
-import React from "react";
-import GlobalStyle from "./features/GlobalStyle";
-import Navbar from "./features/Navbar";
-import Container from "./features/Container";
-import Home from "./features/Home";
 
-function App() {
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./features/Navbar.js";
+import Container from "./features/Container.js";
+import Home from "./features/Home.js";
+import AddForm from "./features/Product/AddForm.js";
+import UpdateForm from "./features/Product/UpdateForm.js"; 
+
+export default function App() {
   return (
     <>
-      <GlobalStyle />
       <Navbar />
       <Container>
-        <Home />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/create-product" element={<AddForm />} />
+          <Route path="/update-product/:id" element={<UpdateForm />} />
+        </Routes>
       </Container>
     </>
   );
 }
-
-export default App;
